@@ -10,7 +10,7 @@ class UserController extends Controller
     // function to redirect to view all users
     public function index()
     {
-        return view('admin.users', [
+        return view('admin.users.index', [
             'users' => User::all()
         ]);
     }
@@ -26,7 +26,7 @@ class UserController extends Controller
     //function to view add user page
     public function create()
     {
-        return view('admin.createuser');
+        return view('admin.users.createuser');
     }
 
     //function to add user
@@ -52,7 +52,7 @@ class UserController extends Controller
     public function edituser($id)
     {
         $editUser = User::find($id);
-        return view('admin.edituser', [
+        return view('admin.users.edituser', [
             'user' => $editUser
         ]);
     }
