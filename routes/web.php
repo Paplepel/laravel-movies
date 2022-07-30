@@ -40,5 +40,10 @@ Route::group(['middleware' => ['auth','adminrole']], function() {
 
     // Routs to manage Cinemas
     Route::get('cinemas', [\App\Http\Controllers\CinemaController::class, 'index'])->name('cinemas');
+    Route::get('deletecinema/{id}', [\App\Http\Controllers\CinemaController::class, 'deletecinema'])->name('deletecinema');
+    Route::get('createcinema', [\App\Http\Controllers\CinemaController::class, 'create'])->name('createcinema');
+    Route::post('postcinema', [\App\Http\Controllers\CinemaController::class, 'postcinema'])->name('postcinema');
+    Route::get('editcinema/{id}', [\App\Http\Controllers\CinemaController::class, 'editcinema'])->name('editcinema');
+    Route::post('posteditcinema', [\App\Http\Controllers\CinemaController::class, 'posteditcinema'])->name('posteditcinema');
 
 });

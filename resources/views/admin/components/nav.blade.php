@@ -20,6 +20,11 @@
                         <span>Users</span>
                     </a>
                 </li>
+                <li class="list-group-item">
+                    <a href="{{route('cinemas')}}">
+                        <span>Cinemas</span>
+                    </a>
+                </li>
 
             </ul>
             <!-- sidebar menu end-->
