@@ -58,5 +58,8 @@ Route::group(['middleware' => ['auth','adminrole']], function() {
     Route::get('movies', [\App\Http\Controllers\MovieController::class, 'index'])->name('movies');
     Route::get('createmovie', [\App\Http\Controllers\MovieController::class, 'create'])->name('createmovie');
     Route::post('postmovie', [\App\Http\Controllers\MovieController::class, 'postmovie'])->name('postmovie');
+    Route::get('deletemovie/{id}', [\App\Http\Controllers\MovieController::class, 'deletemovie'])->name('deletemovie');
+    Route::get('editmovie/{id}', [\App\Http\Controllers\MovieController::class, 'editmovie'])->name('editmovie');
+    Route::post('posteditmovie', [\App\Http\Controllers\MovieController::class, 'posteditmovie'])->name('posteditmovie');
 
 });

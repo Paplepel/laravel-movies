@@ -31,17 +31,17 @@
 
                             @foreach($movies as $movie)
                                 <tr>
-                                    <td><img src="{{$movie->movie_banner}}" width="200px"></td>
+                                    <td><img src="/movieimage/{{$movie->movie_poster}}" width="200px"></td>
                                     <td>{{$movie->name}}</td>
                                     <td>{{$movie->created_at}}</td>
                                     <td>{{$movie->updated_at}}</td>
                                     <td>
-                                        <a href="editcinema/{{$movie->id}}" class="btn btn-primary">
+                                        <a href="{{ route('editmovie',['id' => $movie->id]) }}" class="btn btn-primary">
                                             Edit
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="deletecinema/{{$movie->id}}" class="btn btn-danger">
+                                        <a href="{{ route('deletemovie',['id' => $movie->id]) }}" class="btn btn-danger">
                                             Delete
                                         </a>
                                     </td>
