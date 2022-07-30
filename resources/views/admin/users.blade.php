@@ -24,6 +24,7 @@
                                     <th>Role</th>
                                     <th>Created</th>
                                     <th>Updated</th>
+                                    <th>Edit</th>
                                     <th>Remove</th>
                                 </tr>
                                 </thead>
@@ -36,6 +37,11 @@
                                         <td>{{$user->user_role}}</td>
                                         <td>{{$user->created_at}}</td>
                                         <td>{{$user->updated_at}}</td>
+                                        <td>
+                                            <a href="edituser/{{$user->id}}" class="btn btn-primary">
+                                                Edit
+                                            </a>
+                                        </td>
                                         <td>
                                             <a href="deleteuser/{{$user->id}}" class="btn btn-danger">
                                                 Delete

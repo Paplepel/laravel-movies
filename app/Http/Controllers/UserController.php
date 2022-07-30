@@ -49,4 +49,30 @@ class UserController extends Controller
         return redirect('/users')->with('status', 'User added successfully');
     }
 
+    public function edituser($id)
+    {
+        $editUser = User::find($id);
+        return view('admin.edituser', [
+            'user' => $editUser
+        ]);
+    }
+
+    public function postedituser(Request $request)
+    {
+        $attributes = $request->validate([
+            'name' => 'required|min:5|max:60||regex:/^[\pL\s]+$/u',
+            'email' => 'bail|required|email|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|max:255',
+            'password' => 'required|min:6|max:20',
+            'user_role' => 'required'
+        ]);
+        $attributes['password'] = bcrypt($attributes['password']);
+        $user = User::find($request->id);
+        $user->name = $attributes['name'];
+        $user->email = $attributes['email'];
+        $user->password = $attributes['password'];
+        $user->user_role = $attributes['user_role'];
+        $user->save();
+        return redirect('/users')->with('status', 'User updated successfully');
+    }
+
 }
