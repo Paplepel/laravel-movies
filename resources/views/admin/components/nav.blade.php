@@ -30,6 +30,11 @@
                         <span>Movies</span>
                     </a>
                 </li>
+                <li class="list-group-item">
+                    <a href="{{route('screenings')}}">
+                        <span>Sceenings</span>
+                    </a>
+                </li>
 
             </ul>
             <!-- sidebar menu end-->

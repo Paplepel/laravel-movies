@@ -19,6 +19,8 @@ class CreateScreeningsTable extends Migration
             $table->foreignId('movie_id')->references('id')->on('movies')->onDelete('cascade');
             $table->foreignId('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->integer('seats');
+            $table->date('date');
+            $table->integer('slot');
             $table->timestamps();
         });
     }

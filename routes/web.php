@@ -62,4 +62,7 @@ Route::group(['middleware' => ['auth','adminrole']], function() {
     Route::get('editmovie/{id}', [\App\Http\Controllers\MovieController::class, 'editmovie'])->name('editmovie');
     Route::post('posteditmovie', [\App\Http\Controllers\MovieController::class, 'posteditmovie'])->name('posteditmovie');
 
+    // Routs to manage Screenings
+    Route::get('screenings', [\App\Http\Controllers\ScreeningController::class, 'index'])->name('screenings');
+
 });
