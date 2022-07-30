@@ -46,4 +46,12 @@ Route::group(['middleware' => ['auth','adminrole']], function() {
     Route::get('editcinema/{id}', [\App\Http\Controllers\CinemaController::class, 'editcinema'])->name('editcinema');
     Route::post('posteditcinema', [\App\Http\Controllers\CinemaController::class, 'posteditcinema'])->name('posteditcinema');
 
+    // Routs to manage Rooms
+    Route::get('cinema/{id}/rooms', [\App\Http\Controllers\RoomController::class, 'index'])->name('rooms');
+    Route::get('cinema/{id}/createroom', [\App\Http\Controllers\RoomController::class, 'create'])->name('createroom');
+    Route::post('cinema/{id}/postroom', [\App\Http\Controllers\RoomController::class, 'postroom'])->name('postroom');
+    Route::get('cinema/{id}/deleteroom/{idroom}', [\App\Http\Controllers\RoomController::class, 'deleteroom'])->name('deleteroom');
+    Route::get('cinema/{id}/editroom/{idroom}', [\App\Http\Controllers\RoomController::class, 'editroom'])->name('editroom');
+    Route::post('cinema/{id}/posteditroom/{idroom}', [\App\Http\Controllers\RoomController::class, 'posteditroom'])->name('posteditroom');
+
 });

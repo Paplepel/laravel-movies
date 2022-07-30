@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">{{ __('Cinemas') }} <a href="{{ route('createcinema') }}" class="btn btn-primary text-right">Add Cinema</a> </div>
+                    <div class="card-header">{{ $cinema->name }} <a href="{{ route('createroom',['id' => $cinema->id]) }}" class="btn btn-primary text-right">Add Rooms</a> </div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -19,38 +19,33 @@
                         <table id="example" class="display" style="width:100%">
                             <thead>
                             <tr>
+                                <th>Cinema</th>
                                 <th>Name</th>
-                                <th>Location</th>
-                                <th>Created</th>
-                                <th>Updated</th>
-                                <th>Manage Rooms</th>
+                                <th>No. Seats</th>
                                 <th>Edit</th>
                                 <th>Remove</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @foreach($cinemas as $cinema)
+                            @foreach($rooms as $room)
                                 <tr>
-                                    <td>{{$cinema->name}}</td>
-                                    <td>{{$cinema->location}}</td>
-                                    <td>{{$cinema->created_at}}</td>
-                                    <td>{{$cinema->updated_at}}</td>
-                                    <td><a href="cinema/{{$cinema->id}}/rooms" class="btn btn-warning">
-                                            Rooms
-                                        </a></td>
+                                    <td>{{$room->name}}</td>
+                                    <td>{{$room->name}}</td>
+                                    <td>{{$room->seats}}</td>
                                     <td>
-                                        <a href="editcinema/{{$cinema->id}}" class="btn btn-primary">
+                                        <a href="{{ route('editroom',['id' => $cinema->id, 'idroom' => $room->id]) }}" class="btn btn-primary">
                                             Edit
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="deletecinema/{{$cinema->id}}" class="btn btn-danger">
+                                        <a href="{{ route('deleteroom',['id' => $cinema->id, 'idroom' => $room->id]) }}" class="btn btn-danger">
                                             Delete
                                         </a>
                                     </td>
                                 </tr>
                             @endforeach
+                            </tbody>
                             </tfoot>
                         </table>
                     </div>
