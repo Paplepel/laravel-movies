@@ -14,4 +14,8 @@ class Movie extends Model
         'movie_banner',
         'movie_poster',
     ];
+
+    public function screening(){
+        return $this->hasMany(Screening::class);
+    }
 }

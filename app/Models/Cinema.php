@@ -13,7 +13,12 @@ class Cinema extends Model
         'name',
         'location',
     ];
-    public function rooms() {
+
+    public function room() {
         return $this->hasMany(Room::class);
+    }
+
+    public function screening(){
+        return $this->hasMany(Screening::class);
     }
 }
