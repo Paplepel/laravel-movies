@@ -54,4 +54,7 @@ Route::group(['middleware' => ['auth','adminrole']], function() {
     Route::get('cinema/{id}/editroom/{idroom}', [\App\Http\Controllers\RoomController::class, 'editroom'])->name('editroom');
     Route::post('cinema/{id}/posteditroom/{idroom}', [\App\Http\Controllers\RoomController::class, 'posteditroom'])->name('posteditroom');
 
+    // Routs to manage Movies
+    Route::get('movies', [\App\Http\Controllers\MovieController::class, 'index'])->name('movies');
+
 });
