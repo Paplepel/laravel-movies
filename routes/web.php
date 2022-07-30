@@ -56,5 +56,7 @@ Route::group(['middleware' => ['auth','adminrole']], function() {
 
     // Routs to manage Movies
     Route::get('movies', [\App\Http\Controllers\MovieController::class, 'index'])->name('movies');
+    Route::get('createmovie', [\App\Http\Controllers\MovieController::class, 'create'])->name('createmovie');
+    Route::post('postmovie', [\App\Http\Controllers\MovieController::class, 'postmovie'])->name('postmovie');
 
 });

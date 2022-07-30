@@ -25,6 +25,11 @@
                         <span>Cinemas</span>
                     </a>
                 </li>
+                <li class="list-group-item">
+                    <a href="{{route('movies')}}">
+                        <span>Movies</span>
+                    </a>
+                </li>
 
             </ul>
             <!-- sidebar menu end-->
