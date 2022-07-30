@@ -30,4 +30,9 @@ Route::group(['middleware' => ['auth','adminrole']], function() {
         return view('admin.index');
     })->name('admin');
 
+    // Routs to manage Users
+    Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users');
+    Route::get('deleteuser/{id}', [\App\Http\Controllers\UserController::class, 'deleteuser'])->name('deleteuser');
+    Route::get('createuser', [\App\Http\Controllers\UserController::class, 'create'])->name('createuser');
+    Route::post('postuser', [\App\Http\Controllers\UserController::class, 'postuser'])->name('postuser');
 });

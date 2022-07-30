@@ -3,27 +3,22 @@
     <aside>
         <div id="sidebar" >
             <!-- sidebar menu start-->
-            <ul>
-                <li>
+            <ul class="list-group">
+                <li class="list-group-item">
                     <a href="/admin">
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
+                <li class="list-group-item">
                     <a href="/">
                         <span>Home</span>
                     </a>
                 </li>
 
-                <li class="sub-menu">
-                    <a>
+                <li class="list-group-item">
+                    <a href="{{route('users')}}">
                         <span>Users</span>
-                        <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
-                    <ul class="sub">
-                        <li><a href="/allusers">All Users</a></li>
-                        <li><a href="/createuser">Add User</a></li>
-                    </ul>
                 </li>
 
             </ul>
