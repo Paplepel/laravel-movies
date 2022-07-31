@@ -24,7 +24,7 @@
 
                             @foreach($movies as $movie)
                                 <tr>
-                                    <td width="10%"><img src="/movieimage/{{$movie->movie_poster}}" width="50px"></td>
+                                    <td width="10%"><img src="/movieimage/{{$movie->movie_poster}}" onerror="this.src='/placeholder/poster.png'" width="100px"></td>
                                     <td width="80%">{{$movie->name}}<br>
                                     </td>
                                     <td width="10%">

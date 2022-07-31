@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Cinemas for').' '.$movie->name }}</div>
                     <div class="card-body">
-                        <img width="100%" src="/movieimage/{{ $movie->movie_banner }}">
+                        <img width="100%" src="/movieimage/{{ $movie->movie_banner }}" onerror="this.src='/placeholder/banner.png'">
                         <br>
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

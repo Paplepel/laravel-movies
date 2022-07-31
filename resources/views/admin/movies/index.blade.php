@@ -31,7 +31,7 @@
 
                             @foreach($movies as $movie)
                                 <tr>
-                                    <td><img src="/movieimage/{{$movie->movie_poster}}" width="200px"></td>
+                                    <td><img src="/movieimage/{{$movie->movie_poster}}" width="200px" onerror="this.src='/placeholder/poster.png'"></td>
                                     <td>{{$movie->name}}</td>
                                     <td>{{$movie->created_at}}</td>
                                     <td>{{$movie->updated_at}}</td>

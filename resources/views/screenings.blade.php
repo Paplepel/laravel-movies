@@ -40,7 +40,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Screenings for ').$movie->name.' at '. $cinema->name}}</div>
                     <div class="card-body">
-                        <img width="100%" src="/movieimage/{{ $movie->movie_banner }}">
+                        <img width="100%" src="/movieimage/{{ $movie->movie_banner }}" onerror="this.src='/placeholder/banner.png'">
                             <table id="example" class="display" style="width:100%">
                                 <thead>
                                 <tr>
