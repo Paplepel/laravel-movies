@@ -70,10 +70,23 @@ class TicketController extends Controller
         $screening->save();
         // Save Ticket to database
         $ticket = new Ticket();
+        $ticket->ticket_number = $this->randomString(10);
         $ticket->screening_id = $request->screening_id;
         $ticket->seats = $request->seats;
         $ticket->user_id = Auth::user()->id;
         $ticket->save();
         return redirect('/tickets')->with('status', 'Ticket booked successfully');
+    }
+
+    // Function to resturn random string of characters
+    public function randomString($length = 10)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }

@@ -15,7 +15,7 @@
                         <table id="example" class="display" style="width:100%">
                             <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Ticket Number</th>
                                 <th>Movie</th>
                                 <th>Cinema</th>
                                 <th>Room</th>
@@ -31,7 +31,7 @@
 
                             @foreach($tickets as $ticket)
                                 <tr>
-                                    <td>{{ $ticket->user->name }}</td>
+                                    <td>{{ $ticket->ticket_number }}</td>
                                     <td>{{ $ticket->screening->movie->name }}</td>
                                     <td>{{ $ticket->screening->cinema->name}}</td>
                                     <td>{{ $ticket->screening->room->name }}</td>
@@ -49,9 +49,15 @@
                                     @endif
                                     <td>
                                         @if($ticket->status == 'Active')
-                                            <a href="{{ route('cancelticket',['id' => $ticket->id]) }}" class="btn btn-danger">
-                                                Cancel
-                                            </a>
+                                            @if($ticket->screening->date == now()->format('Y-m-d') && strtotime($ticket->screening->slot->time) >= strtotime('-1 hour'))
+                                                <text class="btn btn-secondary">
+                                                    Cancel
+                                                </text>
+                                            @else
+                                                <a href="cancelticket/{{$ticket->id}}" class="btn btn-danger">
+                                                    Cancel
+                                                </a>
+                                            @endif
                                         @else
                                             <text class="btn btn-secondary">
                                                 Cancel

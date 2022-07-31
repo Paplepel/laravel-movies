@@ -31,6 +31,8 @@
                                 <a class="btn btn-primary" href="{{ route('mytickets') }}">
                                     {{ __('Back to my tickets') }}
                                 </a>
+                                <br>
+                                <h3 class="my-3">Ticket Number: {{ $ticket->ticket_number }}</h3>
                                 </form>
                             </div>
 
