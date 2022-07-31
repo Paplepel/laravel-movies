@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Screening;
 use App\Models\Room;
 use App\Models\Movie;
+use App\Models\Slot;
 
 class ScreeningController extends Controller
 {
@@ -29,11 +30,13 @@ class ScreeningController extends Controller
         $cinemas = Cinema::all();
         $movies = Movie::all();
         $rooms = Room::all();
+        $slots = Slot::all();
 
         return view('admin.screenings.create', [
             'cinemas' => $cinemas,
             'movies' => $movies,
-            'rooms' => $rooms
+            'rooms' => $rooms,
+            'slots' => $slots
         ]);
     }
 }

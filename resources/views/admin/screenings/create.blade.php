@@ -40,9 +40,55 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Rooms') }}</label>
                                 <div class="col-md-6">
                                     <select name="room_id" class="form-control" id="room_id">
-                                        <option value="">Select Cinema</option>
+                                        <option value="">Select Room</option>
                                     </select>
                                     @error('room_id')
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Movie') }}</label>
+                                <div class="col-md-6">
+                                    <select name="movie_id" class="form-control" id="movie_id">
+                                        <option value="">Select Movie</option>
+                                        @foreach($movies as $movie)
+                                            <option value="{{$movie->id}}">{{$movie->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('movie_id')
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Time Slot') }}</label>
+                                <div class="col-md-6">
+                                    <select name="slot_id" class="form-control" id="slot_id">
+                                        <option value="">Select Time Slot</option>
+                                        @foreach($slots as $slot)
+                                            <option value="{{$slot->id}}">{{$slot->time}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('slot_id')
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Show Slot') }}</label>
+                                <div class="col-md-6">
+                                    <input type="date" name="show_date" class="form-control" id="show_date">
+                                    @error('show_date')
                                     <div class="alert alert-danger" role="alert">
                                         {{ $message }}
                                     </div>

@@ -20,7 +20,7 @@ class CreateScreeningsTable extends Migration
             $table->foreignId('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->integer('seats');
             $table->date('date');
-            $table->integer('slot');
+            $table->foreignId('slot_id')->references('id')->on('slots')->onDelete('cascade');
             $table->timestamps();
         });
     }
