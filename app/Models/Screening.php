@@ -32,4 +32,8 @@ class Screening extends Model
         return $this->belongsTo(Slot::class);
     }
 
+    public function tickets() {
+        return $this->hasMany(Ticket::class);
+    }
+
 }

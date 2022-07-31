@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/movie/{movie_id}/cinemas', [App\Http\Controllers\HomeController::class, 'cinemas'])->name('moviecinemas');
 Route::get('/movie/{movie_id}/cinemas/{cinema_id}/screenings', [App\Http\Controllers\HomeController::class, 'screenings'])->name('moviescreenings');
-ROute::post('/screening/search', [App\Http\Controllers\HomeController::class, 'dateSearch'])->name('dateSearch');
+Route::post('/screening/search', [App\Http\Controllers\HomeController::class, 'dateSearch'])->name('dateSearch');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/ticket/{screening_id}', [App\Http\Controllers\TicketController::class, 'index'])->name('ticket');
+    Route::post('ticket/book', [App\Http\Controllers\TicketController::class, 'book'])->name('book');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth','adminrole']], function() {
     Route::get('admin', function () {

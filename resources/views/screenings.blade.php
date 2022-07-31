@@ -66,7 +66,7 @@
                                         <td>{{$screening->slot->time}}</td>
                                         <td>{{$screening->seats}}</td>
                                         @if($screening->seats > 0)
-                                            <td><a href="{{ route('booking', ['screening_id' => $screening->id]) }}" class="btn btn-primary">Book Now</a></td>
+                                            <td><a href="{{ route('ticket', ['screening_id' => $screening->id]) }}" class="btn btn-primary">Book Now</a></td>
                                         @else
                                             <td>Sold Out</td>
                                         @endif
