@@ -19,6 +19,8 @@ Route::get('/movie/{movie_id}/cinemas/{cinema_id}/screenings', [App\Http\Control
 Route::post('/screening/search', [App\Http\Controllers\HomeController::class, 'dateSearch'])->name('dateSearch');
 
 Auth::routes();
+    Route::get('tickets', [App\Http\Controllers\TicketController::class, 'myTickets'])->name('mytickets');
+    Route::get('ticket/{id}', [App\Http\Controllers\TicketController::class, 'cancel'])->name('cancelticket');
     Route::get('/ticket/{screening_id}', [App\Http\Controllers\TicketController::class, 'index'])->name('ticket');
     Route::post('ticket/book', [App\Http\Controllers\TicketController::class, 'book'])->name('book');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

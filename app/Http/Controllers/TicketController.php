@@ -15,6 +15,17 @@ class TicketController extends Controller
         $this->middleware('auth');
     }
 
+    //Function to view all user tickets
+    public function myTickets()
+    {
+        $tickets = Ticket::with('screening','user')
+            ->where('user_id', Auth::user()->id)
+            ->get();
+        return view('tickets', [
+            "tickets" => $tickets
+        ]);
+    }
+
     // Function to generate ticket on screen for booking
     public function index($screening_id)
     {
@@ -40,6 +51,6 @@ class TicketController extends Controller
         $ticket->seats = $request->seats;
         $ticket->user_id = Auth::user()->id;
         $ticket->save();
-        return redirect('/')->with('status', 'Ticket booked successfully');
+        return redirect('/tickets')->with('status', 'Ticket booked successfully');
     }
 }
