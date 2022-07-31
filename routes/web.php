@@ -20,7 +20,8 @@ Route::post('/screening/search', [App\Http\Controllers\HomeController::class, 'd
 
 Auth::routes();
     Route::get('tickets', [App\Http\Controllers\TicketController::class, 'myTickets'])->name('mytickets');
-    Route::get('ticket/{id}', [App\Http\Controllers\TicketController::class, 'cancel'])->name('cancelticket');
+    Route::get('ticket/{id}/view', [App\Http\Controllers\TicketController::class, 'viewTicket'])->name('viewticket');
+    Route::get('ticket/{id}/cancel', [App\Http\Controllers\TicketController::class, 'cancel'])->name('cancelticket');
     Route::get('/ticket/{screening_id}', [App\Http\Controllers\TicketController::class, 'index'])->name('ticket');
     Route::post('ticket/book', [App\Http\Controllers\TicketController::class, 'book'])->name('book');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

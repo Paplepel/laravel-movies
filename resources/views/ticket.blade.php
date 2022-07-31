@@ -27,6 +27,7 @@
                             <div class="col-md-4">
                                 <form method="POST" action="{{ route('book') }}">
                                 @csrf
+                                    <h3 class="my-3">Number of Seats</h3>
                                 <input id="seats" type="number" class="form-control @error('seats') is-invalid @enderror" name="seats" value="{{ old('seats')}}" required>
 
                                 @error('seats')

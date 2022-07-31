@@ -48,14 +48,26 @@
                                         @endif
                                     @endif
                                     <td>
-                                        <a href="" class="btn btn-danger">
-                                            Cancel
-                                        </a>
+                                        @if($ticket->status == 'Active')
+                                            <a href="{{ route('cancelticket',['id' => $ticket->id]) }}" class="btn btn-danger">
+                                                Cancel
+                                            </a>
+                                        @else
+                                            <text class="btn btn-secondary">
+                                                Cancel
+                                            </text>
+                                        @endif
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-danger">
-                                            View
-                                        </a>
+                                        @if($ticket->status == 'Active')
+                                            <a href="{{ route('viewticket',['id' => $ticket->id]) }}" class="btn btn-primary">
+                                                View
+                                            </a>
+                                        @else
+                                            <text class="btn btn-secondary">
+                                                View
+                                            </text>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

@@ -26,6 +26,29 @@ class TicketController extends Controller
         ]);
     }
 
+    //Function to view a ticket
+    public function viewTicket($id)
+    {
+        $ticket = Ticket::with('screening','user')
+            ->where('id', $id)
+            ->first();
+        return view('viewticket', [
+            "ticket" => $ticket
+        ]);
+    }
+
+    //Function to cancel a ticket
+    public function cancel($id)
+    {
+        $ticket = Ticket::find($id);
+        $sceening = Screening::find($ticket->screening_id);
+        $sceening->seats = $sceening->seats + $ticket->seats;
+        $sceening->save();
+        $ticket->status = "Cancelled";
+        $ticket->save();
+        return redirect('/tickets')->with('status', 'Ticket cancelled successfully');
+    }
+
     // Function to generate ticket on screen for booking
     public function index($screening_id)
     {
