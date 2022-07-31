@@ -25,9 +25,9 @@
 2) Users should be logged in to complete a booking, but can view and select whilst
 unauthenticated. (Complete)
 3) Users should be given a unique booking reference number to use as a redemption
-method. (No need to mail it, displaying it will be fine.) (Pending)
+method. (No need to mail it, displaying it will be fine.) (Complete)
 4) Users should be able to view their booking specifics after having booked.(Complete)
-5) Users should be able to cancel a booking up until one hour before the show starts. (Pending)
+5) Users should be able to cancel a booking up until one hour before the show starts. (Complete)
 6) Cinema theaters have a maximum number of 30 seats.
 & When booking, a user only needs to choose a cinema, a film, a show time, and the
 number of tickets. (Use whichever display method and process / flow you like best,

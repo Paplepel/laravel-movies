@@ -1,3 +1,6 @@
+<?php
+    use Carbon\Carbon;
+?>
 @extends('layouts.app')
 
 @section('content')
@@ -48,20 +51,20 @@
                                         @endif
                                     @endif
                                     <td>
-                                        @if($ticket->status == 'Active')
-                                            @if($ticket->screening->date == now()->format('Y-m-d') && strtotime($ticket->screening->slot->time) >= strtotime('-1 hour'))
-                                                <text class="btn btn-secondary">
-                                                    Cancel
-                                                </text>
-                                            @else
-                                                <a href="cancelticket/{{$ticket->id}}" class="btn btn-danger">
-                                                    Cancel
-                                                </a>
-                                            @endif
-                                        @else
+                                        @if(Carbon::createFromFormat('Y-m-d H:i:s', $ticket->screening->date.' '.$ticket->screening->slot->time)->addHours(1)->lte(Carbon::now('Africa/Johannesburg')->format('Y-m-d H:i:s')) )
                                             <text class="btn btn-secondary">
                                                 Cancel
                                             </text>
+                                        @else
+                                            @if($ticket->status == 'Active')
+                                                <a href="cancelticket/{{$ticket->id}}" class="btn btn-danger">
+                                                    Cancel
+                                                </a>
+                                            @else
+                                                <text class="btn btn-secondary">
+                                                    Cancel
+                                                </text>
+                                            @endif
                                         @endif
                                     </td>
                                     <td>
