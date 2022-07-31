@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Slot extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'time',
+    ];
+
+    public function screening() {
+        return $this->hasMany(Screening::class);
+    }
 }

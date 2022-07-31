@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">{{ __('Add Screening') }}</div>
+                    <div class="card-header">{{ __('Edit Screening') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -16,7 +16,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('postscreening') }}">
+                        <form method="POST" action="{{ route('posteditscreening') }}">
                             @csrf
 
                             <div class="row mb-3">
@@ -25,7 +25,7 @@
                                     <select name="cinema_id" class="form-control" id="cinema_id">
                                         <option value="">Select Cinema</option>
                                         @foreach($cinemas as $cinema)
-                                            <option value="{{$cinema->id}}">{{$cinema->name}}</option>
+                                            <option @if($cinema->id == $screening->cinema_id) selected @endif value="{{$cinema->id}}">{{$cinema->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('cinema_id')
@@ -41,6 +41,9 @@
                                 <div class="col-md-6">
                                     <select name="room_id" class="form-control" id="room_id">
                                         <option value="">Select Room</option>
+                                        @foreach($rooms as $room)
+                                            <option @if($room->id == $screening->room_id) selected @endif value="{{$room->id}}">{{$room->name}}</option>
+                                        @endforeach
                                     </select>
                                     @error('room_id')
                                     <div class="alert alert-danger" role="alert">
@@ -56,7 +59,7 @@
                                     <select name="movie_id" class="form-control" id="movie_id">
                                         <option value="">Select Movie</option>
                                         @foreach($movies as $movie)
-                                            <option value="{{$movie->id}}">{{$movie->name}}</option>
+                                            <option @if($movie->id == $screening->movie_id) selected @endif value="{{$movie->id}}">{{$movie->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('movie_id')
@@ -73,7 +76,7 @@
                                     <select name="slot_id" class="form-control" id="slot_id">
                                         <option value="">Select Time Slot</option>
                                         @foreach($slots as $slot)
-                                            <option value="{{$slot->id}}">{{$slot->time}}</option>
+                                            <option @if($slot->id == $screening->slot_id) selected @endif value="{{$slot->id}}">{{$slot->time}}</option>
                                         @endforeach
                                     </select>
                                     @error('slot_id')
@@ -87,7 +90,7 @@
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Show Slot') }}</label>
                                 <div class="col-md-6">
-                                    <input type="date" name="show_date" class="form-control" id="show_date">
+                                    <input type="date" name="show_date" value="{{ $screening->date }}" class="form-control" id="show_date">
                                     @error('show_date')
                                     <div class="alert alert-danger" role="alert">
                                         {{ $message }}
@@ -95,7 +98,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <input type="hidden" name="id" value="{{ $screening->id }}">
 
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">

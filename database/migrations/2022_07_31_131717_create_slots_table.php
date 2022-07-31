@@ -18,7 +18,28 @@ class CreateSlotsTable extends Migration
             $table->time('time');
             $table->timestamps();
         });
+
+        $data =  array(
+            [
+                'time' => '10:00:00',
+            ],
+            [
+                'time' => '13:00:00',
+            ],
+            [
+                'time' => '17:00:00',
+            ],
+            [
+                'time' => '20:00:00',
+            ],
+        );
+        foreach ($data as $item){
+            $slot = new \App\Models\Slot();
+            $slot->time =$item['time'];
+            $slot->save();
+        }
     }
+
 
     /**
      * Reverse the migrations.

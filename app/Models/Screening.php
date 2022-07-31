@@ -28,4 +28,8 @@ class Screening extends Model
         return $this->belongsTo(Movie::class);
     }
 
+    public function slot() {
+        return $this->belongsTo(Slot::class);
+    }
+
 }

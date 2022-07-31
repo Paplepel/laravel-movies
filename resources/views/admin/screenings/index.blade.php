@@ -37,15 +37,15 @@
                                     <td>{{$screening->cinema->location}}</td>
                                     <td>{{$screening->movie->name}}</td>
                                     <td>{{$screening->room->name}}</td>
-                                    <td>{{$screening->slot}}</td>
+                                    <td>{{$screening->slot->time}}</td>
                                     <td>{{$screening->seats}}</td>
                                     <td>
-                                        <a href="editcinema/{{$screening->id}}" class="btn btn-primary">
+                                        <a href="{{ route('editscreening',['id' => $screening->id]) }}" class="btn btn-primary">
                                             Edit
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="deletecinema/{{$screening->id}}" class="btn btn-danger">
+                                        <a href="{{ route('deletescreening',['id' => $screening->id]) }}" class="btn btn-danger">
                                             Delete
                                         </a>
                                     </td>

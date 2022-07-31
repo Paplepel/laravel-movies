@@ -67,5 +67,8 @@ Route::group(['middleware' => ['auth','adminrole']], function() {
     Route::get('createscreening', [\App\Http\Controllers\ScreeningController::class, 'create'])->name('createscreening');
     Route::post('postscreening', [\App\Http\Controllers\ScreeningController::class, 'postscreening'])->name('postscreening');
     Route::get('cinimaroom',[\App\Http\Controllers\ScreeningController::class, 'getRoom'])->name('cinimaroom');
+    Route::get('deletescreening/{id}', [\App\Http\Controllers\ScreeningController::class, 'deletescreening'])->name('deletescreening');
+    Route::get('editscreening/{id}', [\App\Http\Controllers\ScreeningController::class, 'editscreening'])->name('editscreening');
+    Route::post('posteditscreening', [\App\Http\Controllers\ScreeningController::class, 'posteditscreening'])->name('posteditscreening');
 
 });
