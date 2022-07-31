@@ -5,6 +5,53 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-header">{{ __('Screenings for ').$movie->name.' at '. $cinema->name . ' By Date'}}</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('dateSearch') }}">
+                            @csrf
+
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('From Date') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="from_date" type="date" class="form-control @error('from_date') is-invalid @enderror" name="from_date" value="{{ $from_date ?? '' }}" required autofocus>
+
+                                    @error('from_date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('T0 Date') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="to_date" type="date" class="form-control @error('to_date') is-invalid @enderror" name="to_date" value="{{ $to_date ?? ''}}" required>
+
+                                    @error('to_date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <input type="hidden" name="movie_id" value="{{ $movie->id }}">
+                            <input type="hidden" name="cinema_id" value="{{ $cinema->id }}">
+
+                            <div class="row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Search') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
                     <div class="card-header">{{ __('Screenings for ').$movie->name.' at '. $cinema->name}}</div>
                     <div class="card-body">
                         <img width="100%" src="/movieimage/{{ $movie->movie_banner }}">
@@ -15,6 +62,7 @@
                                     <th>Location</th>
                                     <th>Movie</th>
                                     <th>Room</th>
+                                    <th>Date</th>
                                     <th>Time Slot</th>
                                     <th>Seats Available</th>
                                     <th>Book Now</th>
@@ -28,6 +76,7 @@
                                         <td>{{$screening->cinema->location}}</td>
                                         <td>{{$screening->movie->name}}</td>
                                         <td>{{$screening->room->name}}</td>
+                                        <td>{{$screening->date}}</td>
                                         <td>{{$screening->slot->time}}</td>
                                         <td>{{$screening->seats}}</td>
                                         <td>
