@@ -11,6 +11,11 @@ use App\Models\Slot;
 
 class ScreeningController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // function to get all screenings and return view
     public function index() {
         $screenings = Screening::with('cinema', 'movie', 'room','slot')->get();

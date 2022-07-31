@@ -7,6 +7,11 @@ use App\Models\Cinema;
 
 class CinemaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // function to redirect to view all cinemas
     public function index()
     {

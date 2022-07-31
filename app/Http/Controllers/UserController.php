@@ -7,6 +7,8 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+
+
     // function to redirect to view all users
     public function index()
     {

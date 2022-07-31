@@ -8,6 +8,11 @@ use App\Models\Room;
 
 class RoomController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // function to redirect to view all room for a cinema
     public function index($id) {
         $rooms = Room::where('cinema_id', $id)->get();

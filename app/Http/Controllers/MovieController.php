@@ -7,6 +7,11 @@ use App\Models\Movie;
 
 class MovieController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // function to redirect to view all movie
     public function index() {
         $movies = Movie::all();
