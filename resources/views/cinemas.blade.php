@@ -29,8 +29,8 @@
                                         <td>{{$cinema->name}}</td>
                                         <td>{{$cinema->location}}</td>
                                         <td>
-                                            <a href="deletecinema/{{$cinema->id}}" class="btn btn-danger">
-                                                Delete
+                                            <a href="{{ route('moviescreenings',['movie_id' => $movie->id, 'cinema_id' => $cinema->id]) }}" class="btn btn-danger">
+                                                Book at Location
                                             </a>
                                         </td>
                                     </tr>

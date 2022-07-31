@@ -5,13 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Movies') }}</div>
+                    <div class="card-header">{{ __('Screenings for ').$movie->name.' at '. $cinema->name}}</div>
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                        <img width="100%" src="/movieimage/{{ $movie->movie_banner }}">
                             <table id="example" class="display" style="width:100%">
                                 <thead>
                                 <tr>
@@ -20,9 +16,8 @@
                                     <th>Movie</th>
                                     <th>Room</th>
                                     <th>Time Slot</th>
-                                    <th>Seats</th>
-                                    <th>Edit</th>
-                                    <th>Remove</th>
+                                    <th>Seats Available</th>
+                                    <th>Book Now</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -37,12 +32,7 @@
                                         <td>{{$screening->seats}}</td>
                                         <td>
                                             <a href="{{ route('editscreening',['id' => $screening->id]) }}" class="btn btn-primary">
-                                                Edit
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('deletescreening',['id' => $screening->id]) }}" class="btn btn-danger">
-                                                Delete
+                                                Book Now
                                             </a>
                                         </td>
                                     </tr>
