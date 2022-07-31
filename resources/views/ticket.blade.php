@@ -11,7 +11,7 @@
                         <div class="row">
 
                             <div class="col-md-2">
-                                <img class="img-fluid" src="/movieimage/{{ $screening->movie->movie_poster }}" alt="">
+                                <img class="img-fluid" src="/movieimage/{{ $screening->movie->movie_poster }}" alt="" onerror="this.src='/placeholder/poster.png'">
                             </div>
 
                             <div class="col-md-4">
