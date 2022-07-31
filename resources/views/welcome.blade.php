@@ -28,7 +28,7 @@
                                     <td width="80%">{{$movie->name}}<br>
                                     </td>
                                     <td width="10%">
-                                        <a href="deletecinema/{{$movie->id}}" class="btn btn-danger">
+                                        <a href="{{ route('moviecinemas',['movie_id' => $movie->id]) }}" class="btn btn-danger">
                                             Book
                                         </a>
                                     </td>
