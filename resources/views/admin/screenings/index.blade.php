@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">{{ __('Screenings') }} <a href="{{ route('createcinema') }}" class="btn btn-primary text-right">Add Screening</a> </div>
+                    <div class="card-header">{{ __('Screenings') }} <a href="{{ route('createscreening') }}" class="btn btn-primary text-right">Add Screening</a> </div>
 
                     <div class="card-body">
                         @if (session('status'))

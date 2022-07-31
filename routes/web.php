@@ -64,5 +64,8 @@ Route::group(['middleware' => ['auth','adminrole']], function() {
 
     // Routs to manage Screenings
     Route::get('screenings', [\App\Http\Controllers\ScreeningController::class, 'index'])->name('screenings');
+    Route::get('createscreening', [\App\Http\Controllers\ScreeningController::class, 'create'])->name('createscreening');
+    Route::post('postscreening', [\App\Http\Controllers\ScreeningController::class, 'postscreening'])->name('postscreening');
+    Route::get('cinimaroom',[\App\Http\Controllers\ScreeningController::class, 'getRoom'])->name('cinimaroom');
 
 });

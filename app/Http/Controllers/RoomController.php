@@ -10,7 +10,7 @@ class RoomController extends Controller
 {
     // function to redirect to view all room for a cinema
     public function index($id) {
-        $rooms = Cinema::find($id)->rooms;
+        $rooms = Room::where('cinema_id', $id)->get();
         return view('admin.rooms.index', [
             'cinema' => Cinema::find($id),
             'rooms' => $rooms,
