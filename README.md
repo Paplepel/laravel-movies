@@ -1,64 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Requirements
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+1) Php 7.3+ (Currently Used by the stable version of Debian Stretch)
+2) Composer
+3) MariaDB
 
-## About Laravel
+## How to install
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1) Clone the repository
+2) Run "cp .env.example .env" (Note: Will not work on windows machines.)
+3) Edit the .env file and set the database credentials
+4) Run "composer install"
+5) Run "php artisan key:generate"
+6) Run "php artisan migrate"
+7) Run "php artisan db:seed"
+8) Run "php artisan serve"
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## How to use
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1) Go to http://localhost:8000/
+2) The first admin user is created by the database seeders. Email "admin@gmail.com" and password is "123456789".
 
-## Learning Laravel
+## Requirements:
+1) Users should be able to register and log in. (Complete)
+2) Users should be logged in to complete a booking, but can view and select whilst
+unauthenticated. (Complete)
+3) Users should be given a unique booking reference number to use as a redemption
+method. (No need to mail it, displaying it will be fine.) (Pending)
+4) Users should be able to view their booking specifics after having booked.(Complete)
+5) Users should be able to cancel a booking up until one hour before the show starts. (Pending)
+6) Cinema theaters have a maximum number of 30 seats.
+& When booking, a user only needs to choose a cinema, a film, a show time, and the
+number of tickets. (Use whichever display method and process / flow you like best,
+simple dropdowns will do as well. ((Complete) Note: The number of seats can be set in the admin panel)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Assumptions:
+1) There are only two cinema locations, each has two theatres, with two films currently
+showing.
+2) Users won’t need to pay.
+3) Environment: Feel free to use whatever you like.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Tasks:
+1) Give a brief explanation about what you used, and why. This may include the tools and
+frameworks you made use of, or any methodologies/best practices you incorporated
+whilst developing, on the application and DB level.
+2) Create a public Github / Bitbucket repository, which should contain your completed
+project and all related files, regular small commits will allow us to better follow your
+work.
+3) Deliver a functional project, with all files included and instructions for setting it up
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Tasks Completed
+1) Used Laravel with a simple bootstrap template. I started with the admin panel to help me figure out how the database
+needs to be structured. I decided to keep the frontend simple and made used of Jquery datatables to display the data.
+2) Repo was created on Git Hug.
+3) Should be working fine let me know if there is any problems.
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Nice-to-Haves:
+1) An admin CRUD for each data entity (Completed)
+2) Testable Code (Did not do test units sorry)
+3) SOLID principles followed (Completed)
+4) Clean commented code (Completed)
