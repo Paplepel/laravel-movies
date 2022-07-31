@@ -23,6 +23,7 @@
                                 <th>Location</th>
                                 <th>Movie</th>
                                 <th>Room</th>
+                                <th>Date</th>
                                 <th>Time Slot</th>
                                 <th>Seats</th>
                                 <th>Edit</th>
@@ -37,6 +38,7 @@
                                     <td>{{$screening->cinema->location}}</td>
                                     <td>{{$screening->movie->name}}</td>
                                     <td>{{$screening->room->name}}</td>
+                                    <td>{{$screening->date}}</td>
                                     <td>{{$screening->slot->time}}</td>
                                     <td>{{$screening->seats}}</td>
                                     <td>
