@@ -39,6 +39,7 @@ class HomeController extends Controller
         $movie = Movie::find($movie_id);
         $cinema = Cinema::find($cinema_id);
         $screenings = Screening::where('movie_id', $movie_id)
+            ->where('date', '>=', now()->format('Y-m-d'))
             ->where('cinema_id', $cinema_id)
             ->With('cinema', 'movie', 'room','slot')
             ->get();
@@ -54,13 +55,12 @@ class HomeController extends Controller
         $movie = Movie::find($request->movie_id);
         $cinema = Cinema::find($request->cinema_id);
         $screenings = Screening::where('movie_id', $request->movie_id)
-            ->where('date','<=' ,$request->to_date)
-            ->where('date','>=' ,$request->from_date)
+            ->where('date', '>=', now()->format('Y-m-d'))
+            ->where('date',$request->to_date)
             ->where('cinema_id', $request->cinema_id)
             ->With('cinema', 'movie', 'room','slot')
             ->get();
         return view('screenings')
-            ->with('from_date', $request->from_date)
             ->with('to_date', $request->to_date)
             ->with('cinema', $cinema)
             ->with('movie', $movie)
