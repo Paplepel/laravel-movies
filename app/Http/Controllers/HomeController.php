@@ -12,7 +12,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $movies = Movie::has('screening')->get();
+        $movies = Movie::whereHas('screening', function($q)
+        {
+            $q->where('date', '>=', now()->format('Y-m-d'));
+        })->get();
         return view('Welcome')
             ->with('movies', $movies);
     }
