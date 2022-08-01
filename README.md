@@ -52,7 +52,7 @@ work.
 ## Tasks Completed
 1) Used Laravel with a simple bootstrap template. I started with the admin panel to help me figure out how the database
 needs to be structured. I decided to keep the frontend simple and made used of Jquery datatables to display the data.
-2) Repo was created on Git Hug.
+2) Repo was created on Git Hub.
 3) Should be working fine let me know if there is any problems.
 
 ## Nice-to-Haves:
